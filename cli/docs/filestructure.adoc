@@ -1,0 +1,161 @@
+= CCraft Project File Structure
+Abracadamz
+:toc:
+
+== Overview
+
+A CCraft project is a structured folder that defines how a package is built, installed, and executed in CC:Tweaked.
+
+Every project has:
+- A manifest file (ccproject.json)
+- Source code files
+- Optional libraries and assets
+
+---
+
+== Standard Structure
+
+[source,text]
+----
+my-project/
+├── ccproject.json
+├── src/
+│   ├── main.lua
+│   └── startup.lua
+├── lib/
+│   ├── utils.lua
+│   └── network.lua
+├── assets/
+│   └── config.json
+└── build/
+----
+
+---
+
+== Core Files
+
+=== ccproject.json
+
+The main project definition file.
+
+[source,json]
+----
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "entry": "src/startup.lua",
+  "description": "Example CCraft project",
+  "author": "user",
+  "dependencies": {
+    "utils": "^1.2.0"
+  }
+}
+----
+
+---
+
+== Directory Breakdown
+
+=== src/
+
+Contains all executable Lua code.
+
+Typical files:
+- `startup.lua` → entrypoint executed by CCraft
+- `main.lua` → optional main logic file
+
+---
+
+=== lib/
+
+Reusable modules and helper functions.
+
+Used with internal imports:
+
+[source,lua]
+----
+local utils = require("lib.utils")
+----
+
+---
+
+=== assets/
+
+Static data files:
+- JSON configs
+- text files
+- data tables
+
+These are not executed directly.
+
+---
+
+=== build/
+
+Generated output directory.
+
+Used by CCraft CLI during:
+- packaging
+- publishing
+- compression
+- version stamping
+
+This folder is typically ignored in source control.
+
+---
+
+== Entry Point System
+
+Each project must define an entry point in `ccproject.json`:
+
+[source,json]
+----
+"entry": "src/startup.lua"
+----
+
+This file is what runs when executing:
+
+[source,bash]
+----
+ccraft run
+----
+
+or
+
+[source,bash]
+----
+ccraft exec <package>
+----
+
+---
+
+== Package Resolution Rules
+
+When CCraft installs a package:
+
+. Downloads project structure
+. Reads `ccproject.json`
+. Validates entry file exists
+. Installs dependencies
+. Registers package locally
+
+---
+
+== Recommended Conventions
+
+- Keep logic in `src/`
+- Keep reusable code in `lib/`
+- Avoid placing logic in root directory
+- Always define a single entry point
+- Do not manually modify `build/`
+
+---
+
+== Future Extensions (planned)
+
+CCraft may later support:
+
+- Multiple entry points (scripts/commands)
+- Permission system for turtles
+- Remote modules (HTTP imports)
+- Precompiled bundles for performance

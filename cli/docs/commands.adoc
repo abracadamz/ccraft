@@ -1,0 +1,32 @@
+= CCraft Commands
+Abracadamz
+:toc:
+
+== Package Management
+
+ccraft install <package>::
+Installs a package from the registry.
+
+ccraft remove <package>::
+Uninstalls a package from the system.
+
+ccraft update <package>::
+Updates a specific package to the latest version.
+
+ccraft upgrade::
+Check for CCraft updates and installs it if one is found
+
+ccraft list::
+Lists all installed packages.
+
+ccraft info <package>::
+Shows information about a package.
+
+ccraft run::
+Runs the current project in CCEmuX.
+
+ccraft create::
+Creates a new project.
+
+ccraft publish::
+Builds and pushes the current project to the package repo. Package manifests with `"private": true` will not be public and will require login before being able to install them.

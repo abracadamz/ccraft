@@ -1,0 +1,38 @@
+= About CCraft
+Abracadamz
+:toc:
+
+== What is CCraft
+CCraft is a tool for Minecraft players using https://modrinth.com/mod/cc-tweaked[CC: Tweaked]. It allows players to store, upload, test, and develop their projects before uploading it to a computer. There is no need to edit files inside the world directory or use the in-game editor.
+
+== Are turtle supported?
+Turtles are partially supported.
+
+Because https://emux.cc/[CCEmuX] does not currently simulate turtles, they cannot be tested locally. However, CCraft only relies on the project manifest, so turtle programs can still be written, built, and deployed. They just cannot be tested before running in-game.
+
+== Quick Start
+
+[start=1]
+. Create a new directory to store your project in
+. Run `ccraft create` and fill out the questions.
+. You should have some files and folders like this:
+[source,text]
+----
+my-project/
+├── ccproject.json
+├── src/
+│   ├── main.lua
+│   └── startup.lua
+├── lib/
+│   └── builtin.lua
+├── assets/
+└── build/
+----
+[start=4]
+. Develop your project.
+. Test your project with `ccraft run`. This will open CCEmuX and run your project.
+. Build and push your project with `ccraft publish` (see xref:commands.adoc[commands])
+. Once pushed, your project is available on the CCraft registry.
+. In-game run `ccraft install <name>`. Note: this requires you to login. You can do this using `ccraft login` in-game aswell as in VSCode.
+. Run `ccraft run <name>` in-game.
+. Done!
