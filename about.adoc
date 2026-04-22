@@ -31,7 +31,7 @@ my-project/
 [start=4]
 . Develop your project.
 . Test your project with `ccraft run`. This will open CCEmuX and run your project.
-. Build and push your project with `ccraft publish` (see xref:commands.adoc[commands])
+. Build and push your project with `ccraft publish` (see link:commands.adoc[commands])
 . Once pushed, your project is available on the CCraft registry.
 . In-game run `ccraft install <name>`. Note: this requires you to login. You can do this using `ccraft login` in-game aswell as in VSCode.
 . Run `ccraft run <name>` in-game.

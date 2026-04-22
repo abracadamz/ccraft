@@ -1,0 +1,10 @@
+= CCraft
+Abracadamz
+
+A package manager and development tool for CC:Tweaked.
+
+== Documentation
+
+- link:about.adoc[About CCraft]
+- link:commands.adoc[Commands]
+- link:structure.adoc[Project Structure]
